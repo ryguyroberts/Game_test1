@@ -1,11 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://cjeouqtc8dbwf"]
+[gd_scene load_steps=15 format=3 uid="uid://cjeouqtc8dbwf"]
 
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_64nxm"]
 [ext_resource type="PackedScene" uid="uid://bbge0ek81qmue" path="res://scenes/player.tscn" id="1_acd7v"]
 [ext_resource type="Texture2D" uid="uid://b428wispr3c0f" path="res://assets/sprites/world_tileset.png" id="2_6w4v7"]
 [ext_resource type="PackedScene" uid="uid://cal5io5jb64rh" path="res://scenes/platform.tscn" id="3_swqu7"]
 [ext_resource type="PackedScene" uid="uid://bs82gl0v6wyfg" path="res://scenes/coin.tscn" id="4_chtyl"]
 [ext_resource type="PackedScene" uid="uid://em7t5tj7jf2n" path="res://scenes/killzone.tscn" id="5_82qtl"]
 [ext_resource type="PackedScene" uid="uid://cisvojwkvqohb" path="res://scenes/slime.tscn" id="6_dp0a1"]
+[ext_resource type="FontFile" uid="uid://uqxrc3ya13ed" path="res://assets/fonts/PixelOperator8.ttf" id="7_b70xn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j7bh3"]
 texture = ExtResource("2_6w4v7")
@@ -450,6 +452,20 @@ _data = {
 
 [node name="Game" type="Node2D"]
 
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_64nxm")
+
+[node name="ScoreLabel" type="Label" parent="GameManager"]
+offset_left = 107.0
+offset_top = -7.0
+offset_right = 208.0
+offset_bottom = 3.0
+theme_override_fonts/font = ExtResource("7_b70xn")
+theme_override_font_sizes/font_size = 8
+text = "You have X Coins
+"
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_6g7wr")
 format = 2
@@ -501,3 +517,13 @@ autoplay = "move"
 
 [node name="Slime" parent="." instance=ExtResource("6_dp0a1")]
 position = Vector2(117, 84)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -157.0
+offset_top = 53.0
+offset_right = -70.0
+offset_bottom = 63.0
+theme_override_fonts/font = ExtResource("7_b70xn")
+theme_override_font_sizes/font_size = 8
+text = "Space to Jump
+"
